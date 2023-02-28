@@ -2,17 +2,21 @@ import axios from 'axios'
 import {ElMessage} from 'element-plus'
 import {Iuser} from "@/api/system/type";
 
+const instance = axios.create({
+  baseURL:'http://127.0.0.1:8080',
+  timeout: 5000
+});
+
 interface option {
   url: string,
   method?: string,
   data?: object
 }
 
-axios.interceptors.request.use(request => {
-  // console.log(request)
+instance.interceptors.request.use(request => {
   return request
 })
-axios.interceptors.response.use(response => {
+instance.interceptors.response.use(response => {
   console.group('本次请求的路径是：' + response.config.url)
   console.log(response.data)
   console.groupEnd()
@@ -31,7 +35,7 @@ interface Iresponse<T> {
 const request = <T>(option: option):Promise<Iresponse<T>> => {
   return new Promise((resolve, reject) => {
     const {url, method, data} = option
-    axios({
+    instance({
       url,
       method,
       data

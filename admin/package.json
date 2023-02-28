@@ -12,7 +12,6 @@
     "axios": "^0.27.2",
     "echarts": "^5.4.1",
     "element-plus": "^2.2.8",
-    "mockjs": "^1.1.0",
     "pinia": "^2.0.30",
     "vue": "^3.2.25",
     "vue-router": "^4.0.16"
