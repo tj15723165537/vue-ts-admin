@@ -3,7 +3,7 @@ import type {employee} from "@/api/employee/type";
 
 export const getEmployeeList = (data: object) => {
     return requset<employee[]>({
-        url: '/employee/employee/list',
+        url: '/employee/employee/list?id=2',
         data
     })
 }

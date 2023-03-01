@@ -6,15 +6,15 @@ router.get('/list', (req, res) => {
   const cb = (error, results) => {
     if (error) throw error;
     if (results) {
-      let data =[]
-      results.map(item=>{
-        item.meta={
+      let data = []
+      results.map(item => {
+        item.meta = {
           title: item.title,
           icon: item.icon
         }
         delete item.title
         delete item.icon
-        if(item.pid === null){
+        if (item.pid === 0) {
           let children = []
           children = results.filter(i => {
             return i.pid === item.id

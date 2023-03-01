@@ -34,7 +34,8 @@ const request = <T>(option: option): Promise<Iresponse<T>> => {
     instance({
       url,
       method,
-      data
+      params: method?.toLowerCase() === 'post' ? null : data,
+      data: method?.toLowerCase() === 'post' ? data : null
     }).then(res => {
       if (res.status !== 200) {
         ElMessage.error('网络错误')
