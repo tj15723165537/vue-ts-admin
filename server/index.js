@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-require('module-alias/register');
+require('module-alias/register'); //路径别名
 var cors = require('cors')
 app.use(cors())
 const user = require('@/module/system/user/index')
