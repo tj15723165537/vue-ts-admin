@@ -1,7 +1,7 @@
 <template>
   <el-form :inline="true">
     <el-form-item label="姓名">
-      <el-input v-model="crud.listQuery.realName"/>
+      <el-input v-model="crud.listQuery.real_name"/>
     </el-form-item>
     <el-form-item label="电话">
       <el-input v-model="crud.listQuery.phone"/>
@@ -19,7 +19,7 @@
     </el-form-item>
   </el-form>
   <el-table :data="crud.data.list" border style="width: 100%;margin-top: 10px">
-    <el-table-column prop="realName" label="姓名"/>
+    <el-table-column prop="real_name" label="姓名"/>
     <el-table-column prop="phone" label="电话"/>
     <el-table-column prop="status" label="状态">
       <template v-slot="{row}">
@@ -43,7 +43,7 @@
       width="50%">
     <el-form :model="crud.tempFrom" ref="formModel" label-width="80px">
       <el-form-item label="姓名" prop="realName">
-        <el-input v-model="crud.tempFrom.realName"/>
+        <el-input v-model="crud.tempFrom.real_name"/>
       </el-form-item>
       <el-form-item label="电话" prop="phone">
         <el-input v-model="crud.tempFrom.phone"/>
@@ -69,7 +69,7 @@ interface IlistQuery extends Ipages, Iuser {
 }
 
 const listQuery = {
-  realName: undefined,
+  real_name: undefined,
   phone: undefined,
   status: undefined,
   page: 1,
@@ -85,7 +85,7 @@ const crud = new Crud({
   },
   listQuery,
   tempFrom: {
-    realName: undefined,
+    real_name: undefined,
     phone: undefined,
     status:undefined
   }
