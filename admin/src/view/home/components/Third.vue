@@ -9,22 +9,17 @@ import {nextTick, onBeforeUnmount} from "vue";
 let myChart: EChartsType | null = null
 const props = {
   style: {
-    height: '45%'
+    height: '50%'
   }
 }
 nextTick(() => {
   myChart = echarts.init(document.getElementById('third') as HTMLElement);
   var option;
   option = {
-    title:{
-      text:'Third'
-    },
     tooltip: {
       trigger: 'item'
     },
     legend: {
-      top: '7%',
-      // left: 'center'
     },
     series: [
       {
@@ -45,7 +40,6 @@ nextTick(() => {
           show: false
         },
         data: [
-          { value: 735, name: 'Direct' },
           { value: 580, name: 'Email' },
           { value: 484, name: 'Union Ads' },
           { value: 300, name: 'Video Ads' }

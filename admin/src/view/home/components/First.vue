@@ -9,7 +9,7 @@ import {nextTick, onBeforeUnmount} from "vue";
 let myChart: EChartsType | null = null
 const props = {
   style: {
-    height: '45%'
+    height: '50%'
   }
 }
 nextTick(() => {
@@ -22,11 +22,9 @@ nextTick(() => {
     data.push([r, i]);
   }
   option = {
-    title: {
-      text: 'First'
-    },
     legend: {
-      data: ['line']
+      data: ['line'],
+      left:'10%'
     },
     polar: {
       center: ['50%', '54%']

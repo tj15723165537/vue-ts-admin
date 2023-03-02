@@ -10,7 +10,7 @@ let myChart: EChartsType | null = null
 
 const props = {
   style: {
-    height: '45%'
+    height: '50%'
   }
 }
 nextTick(() => {
@@ -40,13 +40,9 @@ nextTick(() => {
     return [+item[1], +item[2], +item[5], +item[6]];
   });
   option = {
-    title:{
-      text:'Second'
-    },
     legend: {
       data: ['MA5', 'MA10', 'MA20', 'MA30'],
-      inactiveColor: '#777',
-      top:'7%'
+      inactiveColor: '#777'
     },
     tooltip: {
       trigger: 'axis',
