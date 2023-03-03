@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     phone: DataTypes.STRING,
     address: DataTypes.STRING,
+    date:DataTypes.DATE
   }, {
     freezeTableName: true,
     timestamps:false
