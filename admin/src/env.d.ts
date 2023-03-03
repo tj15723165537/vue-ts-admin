@@ -15,3 +15,4 @@ declare module 'axios' {
     (config: AxiosRequestConfig): Promise<any>
   }
 }
+

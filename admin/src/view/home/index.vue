@@ -4,7 +4,7 @@
       <First/>
       <Second/>
     </div>
-    <Map />
+    <Map/>
     <div class="right">
       <Third/>
       <Fourth/>
@@ -20,19 +20,21 @@ import Fourth from "@/view/home/components/Fourth.vue";
 import Map from "@/view/home/components/Map.vue";
 </script>
 <style lang="scss" scoped>
-.content{
+.content {
   padding: 10px;
 }
+
 .home {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 2fr 1fr;
   //background: #f0f2f5;
-  .left,.right{
+  .left, .right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    >div{
+
+    > div {
       //background: #f0f2f5;
       border-radius: 5px;
       height: 100%;
