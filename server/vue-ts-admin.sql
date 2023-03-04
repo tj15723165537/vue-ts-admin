@@ -11,7 +11,7 @@
  Target Server Version : 80032
  File Encoding         : 65001
 
- Date: 03/03/2023 15:39:54
+ Date: 04/03/2023 17:53:46
 */
 
 SET NAMES utf8mb4;
@@ -33,7 +33,7 @@ CREATE TABLE `employee`  (
 -- ----------------------------
 -- Records of employee
 -- ----------------------------
-INSERT INTO `employee` VALUES (1, '王五', '13577776666', '重庆市渝中区大坪', '2023-03-01 16:43:38');
+INSERT INTO `employee` VALUES (1, '王五', '13577776666', '重庆市渝中区大坪', '2023-03-03 16:00:00');
 INSERT INTO `employee` VALUES (2, '赵六', '13988885555', '重庆市渝中区朝天门', '2023-02-28 16:43:43');
 
 -- ----------------------------
@@ -54,11 +54,11 @@ CREATE TABLE `menu`  (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, 'home', '/home', '/home', '首页', 'shouye', 0);
-INSERT INTO `menu` VALUES (2, 'system', '/system', '/system/user', '系统管理', 'system', 0);
-INSERT INTO `menu` VALUES (3, 'user', '/system/user', 'user', '用户管理', 'user', 2);
-INSERT INTO `menu` VALUES (4, 'employee', '/employee', '/employee', '员工管理', 'employee', 0);
-INSERT INTO `menu` VALUES (5, 'employee', '/employee/employee', 'employee', '员工管理', 'employee', 4);
+INSERT INTO `menu` VALUES (1, 'home', '/home', '/home', '首页', 'HomeFilled', 0);
+INSERT INTO `menu` VALUES (2, 'system', '/system', '/system/user', '系统管理', 'Tools', 0);
+INSERT INTO `menu` VALUES (3, 'user', '/system/user', 'user', '用户管理', 'UserFilled', 2);
+INSERT INTO `menu` VALUES (4, 'employee', '/employee', '/employee', '员工管理', 'Avatar', 0);
+INSERT INTO `menu` VALUES (5, 'employee', '/employee/employee', 'employee', '员工管理', 'Avatar', 4);
 
 -- ----------------------------
 -- Table structure for user
@@ -66,8 +66,8 @@ INSERT INTO `menu` VALUES (5, 'employee', '/employee/employee', 'employee', '员
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
   `id` bigint(0) NOT NULL,
-  `real_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
-  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `account` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `status` tinyint(0) NULL DEFAULT NULL,
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
@@ -77,7 +77,6 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '张三', '13122223333', 1, '2023-03-02 10:23:16', '2023-03-02 10:07:44');
-INSERT INTO `user` VALUES (2, '李四', '13566669999', 0, '2023-02-27 10:07:53', '2023-02-28 10:07:56');
+INSERT INTO `user` VALUES (1677918625692, 'admin', '$2a$10$BgawVKm6v34zK.vqhY2jwu0MFaFQKRZSkoekhdxkC6b3ygYKW5NaS', 1, '2023-03-04 08:30:25', '2023-03-04 08:30:25');
 
 SET FOREIGN_KEY_CHECKS = 1;
