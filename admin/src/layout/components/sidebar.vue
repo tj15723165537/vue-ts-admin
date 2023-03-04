@@ -36,7 +36,6 @@
 <script setup lang="ts">
 import {getMenuList} from "@/api/system/index";
 import {onMounted, ref} from 'vue'
-import {menuList} from '@/mockjs/system/menu'
 import {useRouter,useRoute, RouteRecordRaw} from 'vue-router'
 import {useMenuStore} from '@/store/modules/menu'
 

@@ -68,7 +68,7 @@ import type {Iuser} from '@/api/system/type'
 interface IlistQuery extends Ipages, Iuser {
 }
 
-const listQuery = {
+const listQuery:IlistQuery = {
   real_name: undefined,
   phone: undefined,
   status: undefined,

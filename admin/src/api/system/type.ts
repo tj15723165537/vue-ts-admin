@@ -1,6 +1,6 @@
 export interface  Iuser{
   id?:number,
-  realName?:string,
+  real_name?:string,
   phone?:string,
   password?:string,
   status?:0|1

@@ -36,10 +36,10 @@
 import {delEmployee, getEmployeeList} from '@/api/employee/index'
 import {onMounted, reactive, ref} from 'vue';
 import type {employee} from '@/api/employee/type'
-import type {IsearchParams} from '@/mockjs/employee/employee'
 import addEdit from './components/add_edit.vue'
 import {ElMessageBox, ElMessage} from "element-plus"
-
+export interface IsearchParams extends Ipages, employee {
+}
 let searchState = reactive<IsearchParams>({
   page: 1,
   size: 10,
