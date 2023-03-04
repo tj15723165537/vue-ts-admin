@@ -21,9 +21,6 @@ const contactRoutes: RouteRecordRaw[] = [
         }]
     },
 ]
-
-
-
 export const router = createRouter({
     history: createWebHistory(),
     routes: contactRoutes

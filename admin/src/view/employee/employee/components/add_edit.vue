@@ -26,7 +26,7 @@
 </template>
 <script lang="ts" setup>
 import {ref, reactive} from "vue";
-import {addOrEditEmployee, getEmployeeDetail} from "@/api/employee"
+import {addEmployee, editEmployee, getEmployeeDetail} from "@/api/employee"
 import {ElMessage} from "element-plus";
 import type {employee} from "@/api/employee/type";
 
@@ -48,7 +48,7 @@ const init = async (id: number) => {
   dataForm.value.id = null
   if (id) {
     title.value = '编辑'
-    const result = await getEmployeeDetail({id})
+    const result = await getEmployeeDetail(id)
     if (result) dataForm.value = result.data
   } else {
     title.value = '新建'
@@ -59,7 +59,8 @@ const init = async (id: number) => {
 }
 
 const submit = () => {
-  addOrEditEmployee(dataForm.value).then(res => {
+  const submitFunc = dataForm.value.id ? editEmployee : addEmployee
+  submitFunc(dataForm.value).then(res => {
     if (res) {
       ElMessage.success('操作成功')
       visible.value = false

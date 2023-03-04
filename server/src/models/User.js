@@ -5,9 +5,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       allowNull: false
     },
-    real_name: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    status: DataTypes.BOOLEAN
+    account: DataTypes.STRING,
+    password: DataTypes.STRING,
+    status: DataTypes.INET
   }, {
     freezeTableName: true
   })

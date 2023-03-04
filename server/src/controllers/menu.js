@@ -1,5 +1,5 @@
 const {Menu} = require("@/models");
-
+const {successRes, failRes} = require('@/utils/response')
 const list = async (req, res) => {
   const result = await Menu.findAll()
   const arr = result.map(item=>{
@@ -22,10 +22,7 @@ const list = async (req, res) => {
       data.push(item)
     }
   })
-  res.send({
-    code: 0,
-    data
-  })
+  successRes(res,{data})
 }
 module.exports = {
   list

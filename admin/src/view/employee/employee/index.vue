@@ -61,7 +61,7 @@ const del = (id) => {
     cancelButtonText: '取消',
     type: 'warning',
   }).then(async () => {
-    let result = await delEmployee({id})
+    let result = await delEmployee(id)
     if (!result) return ElMessage.error('删除失败')
     ElMessage({
       type: 'success',

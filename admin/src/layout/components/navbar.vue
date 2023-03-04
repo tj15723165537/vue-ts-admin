@@ -8,7 +8,7 @@
     <div class="userInfo">
       <img src="../../assets/img/pikaqiu.jpg">
       <div>
-        <button class="logout">退出</button>
+        <button class="logout" @click="logout">退出</button>
       </div>
     </div>
   </div>
@@ -16,7 +16,12 @@
 
 <script lang="ts" setup>
 import {useMenuStore} from "@/store/modules/menu";
+import {useRouter} from "vue-router";
+const router = useRouter()
 const store = useMenuStore()
+const logout = () => {
+  router.push('/login')
+}
 </script>
 
 <style lang="scss" scoped>

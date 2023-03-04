@@ -1,10 +1,7 @@
 <template>
   <el-form :inline="true">
-    <el-form-item label="姓名">
-      <el-input v-model="crud.listQuery.real_name"/>
-    </el-form-item>
-    <el-form-item label="电话">
-      <el-input v-model="crud.listQuery.phone"/>
+    <el-form-item label="账号">
+      <el-input v-model="crud.listQuery.account"/>
     </el-form-item>
     <el-form-item label="状态">
       <el-select v-model="crud.listQuery.status" placeholder="请选择">
@@ -19,11 +16,12 @@
     </el-form-item>
   </el-form>
   <el-table :data="crud.data.list" border style="width: 100%;margin-top: 10px">
-    <el-table-column prop="real_name" label="姓名"/>
-    <el-table-column prop="phone" label="电话"/>
+    <el-table-column prop="account" label="账号"/>
+    <el-table-column prop="createdAt" label="创建时间"/>
+    <el-table-column prop="updatedAt" label="更新时间"/>
     <el-table-column prop="status" label="状态">
       <template v-slot="{row}">
-        <el-switch v-model="row.status"/>
+        <el-switch v-model="row.status" @change="updateStatus(row.id,$event)"/>
       </template>
     </el-table-column>
     <el-table-column label="操作">
@@ -34,7 +32,7 @@
     </el-table-column>
   </el-table>
   <div class="page">
-    <el-pagination background layout="prev, pager, next" :total="crud.pagination.total"/>
+    <el-pagination background layout="prev, pager, next" :total="crud.pagination.total" @current-change="crud.getList({page:$event})"/>
   </div>
 
   <el-dialog
@@ -42,14 +40,14 @@
       :title="crud.tempFrom.id?'编辑':'新增'"
       width="50%">
     <el-form :model="crud.tempFrom" ref="formModel" label-width="80px">
-      <el-form-item label="姓名" prop="realName">
-        <el-input v-model="crud.tempFrom.real_name"/>
+      <el-form-item label="账号" prop="account">
+        <el-input v-model="crud.tempFrom.account"/>
       </el-form-item>
-      <el-form-item label="电话" prop="phone">
-        <el-input v-model="crud.tempFrom.phone"/>
+      <el-form-item label="密码" prop="password">
+        <el-input v-model="crud.tempFrom.password"/>
       </el-form-item>
       <el-form-item label="状态">
-          <el-switch v-model="crud.tempFrom.status" :active-value="1" :inactive-value="0"/>
+        <el-switch v-model="crud.tempFrom.status" :active-value="1" :inactive-value="0"/>
       </el-form-item>
       <el-form-item>
         <el-button @click="crud.cancel()">取消</el-button>
@@ -60,17 +58,17 @@
 
 </template>
 <script lang="ts" setup>
-import {addUser, delUser, editUser, getUserDetail, getUserList} from '@/api/system/index'
+import {addUser, delUser, editUser, getUserDetail, getUserList, updateUserStatus} from '@/api/system/index'
 import {onMounted, reactive, ref, watch} from 'vue';
 import {Crud} from '@/hooks/crud'
 import type {Iuser} from '@/api/system/type'
+import {ElMessage} from "element-plus/es";
 
 interface IlistQuery extends Ipages, Iuser {
 }
 
-const listQuery:IlistQuery = {
-  real_name: undefined,
-  phone: undefined,
+const listQuery: IlistQuery = {
+  account: undefined,
   status: undefined,
   page: 1,
   size: 10
@@ -85,9 +83,9 @@ const crud = new Crud({
   },
   listQuery,
   tempFrom: {
-    real_name: undefined,
-    phone: undefined,
-    status:undefined
+    account: '',
+    password:'',
+    status: 1
   }
 })
 crud.getList()
@@ -96,6 +94,11 @@ watch(() => crud.data.list, (val) => {
     item.status = item.status ? true : false
   })
 })
+const updateStatus = (id,val) => {
+  updateUserStatus(id,val ? 1 : 0).then(res=>{
+    ElMessage.success(res.msg)
+  })
+}
 </script>
 <style lang="scss" scoped>
 .page {

@@ -1,7 +1,8 @@
 export interface  Iuser{
   id?:number,
-  real_name?:string,
-  phone?:string,
+  account?:string,
   password?:string,
-  status?:0|1
+  status?:0|1,
+  createAt?:Date,
+  updateAt?:Date
 }

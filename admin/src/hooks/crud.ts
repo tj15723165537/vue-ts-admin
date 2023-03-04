@@ -73,13 +73,13 @@ export class Crud {
   // 获取数据
   getList(page?: any, expand?: any) {
     if (page) {
-      this.listQuery.size = page.size
-      this.listQuery.page = page.page
+      this.listQuery.size = page.size || 10
+      this.listQuery.page = page.page || 1
     }
     return this.apiList['L'](this.listQuery).then((res: any) => {
       if (res.code === 0) {
         this.data.list = expand && expand.list ? res.data[expand.list] : res.data
-        this.pagination.total = expand && expand.total ? Number(res.data[expand.total]) : Number(res.data.totalElements) || Number(res.data.length)
+        this.pagination.total = expand && expand.total ? Number(res.data[expand.total]) : res.total
         return res
       }
     })
@@ -138,10 +138,7 @@ export class Crud {
           type: 'warning',
         }
     ).then(async (res) => {
-      let params = {
-        [this.rowIdText]: id,
-      }
-      this.apiList['D'](params).then((res: any) => {
+      this.apiList['D'](id).then((res: any) => {
         if (res.code == 0) {
           this.getList()
           ElMessage.success('删除成功!')
@@ -184,7 +181,7 @@ export class Crud {
     return new Promise((resolve, reject) => {
       if (this.apiList['R']) {
         // 获取详情
-        this.apiList['R']({id:row[this.rowIdText]}).then((res: any) => {
+        this.apiList['R'](row[this.rowIdText]).then((res: any) => {
           let temp = res.data
           resolve(temp)
         })

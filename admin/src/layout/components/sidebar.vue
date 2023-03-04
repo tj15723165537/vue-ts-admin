@@ -13,18 +13,25 @@
         <el-sub-menu :index="item.path" v-if="item.children.length">
           <template #title>
             <el-icon>
-              <location/>
+              <component :is="item.meta.icon"></component>
             </el-icon>
             <span>{{ item.meta.title }}</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item :index="i.path" v-for="i in item.children" :key="i.path">{{ i.meta.title }}</el-menu-item>
+            <el-menu-item :index="i.path" v-for="i in item.children" :key="i.path">
+              <template #title>
+                <el-icon>
+                  <component :is="i.meta.icon"></component>
+                </el-icon>
+                <span>{{ i.meta.title }}</span>
+              </template>
+            </el-menu-item>
           </el-menu-item-group>
         </el-sub-menu>
 
         <el-menu-item :index="item.path" v-else>
           <el-icon>
-            <Tools/>
+            <component :is="item.meta.icon"></component>
           </el-icon>
           <template #title>{{ item.meta.title }}</template>
         </el-menu-item>
