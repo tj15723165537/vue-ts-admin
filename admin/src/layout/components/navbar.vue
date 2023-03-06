@@ -1,26 +1,39 @@
 <template>
   <div>
     <div class="left">
-      <el-icon style="font-size: 24px;color:rgba(0,0,0,.65);line-height: 60px;cursor: pointer" @click="store.setIsCollapse()">
+      <el-icon style="font-size: 24px;color:rgba(0,0,0,.65);line-height: 60px;cursor: pointer"
+               @click="menuStore.setIsCollapse()">
         <Fold/>
       </el-icon>
     </div>
     <div class="userInfo">
       <img src="../../assets/img/pikaqiu.jpg">
       <div>
-        <button class="logout" @click="logout">退出</button>
+        <button class="logout" @click="handLogout">退出</button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import {useCommonStore} from "@/store/modules/common";
 import {useMenuStore} from "@/store/modules/menu";
 import {useRouter} from "vue-router";
+import {ElMessageBox} from "element-plus/es";
+
 const router = useRouter()
-const store = useMenuStore()
-const logout = () => {
-  router.push('/login')
+const commonStore = useCommonStore()
+const menuStore = useMenuStore()
+const handLogout = () => {
+  ElMessageBox.confirm('确定要退出登录吗?', '提示', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning',
+  }).then(res => {
+    commonStore.setToken('')
+    router.push('/login')
+  }).catch(err => {
+  })
 }
 </script>
 

@@ -43,10 +43,14 @@ const request = <T>(option: option): Promise<Iresponse<T>> => {
       data: method?.toLowerCase() === 'post' ? data : null
     }).then(res => {
       if (res.status !== 200) {
-        ElMessage.error('网络错误')
+        const errMsg =  '网络错误'
+        ElMessage.error(errMsg)
+        reject(errMsg)
       } else {
         if (res.data.code !== 0) {
-          ElMessage.error(res.data.msg || res.data.message || '意料之外的错误')
+          const errMsg = res.data.msg || res.data.message || '意料之外的错误'
+          return ElMessage.error(errMsg)
+          reject(errMsg)
         }
 
         // 时间处理

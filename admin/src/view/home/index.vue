@@ -41,7 +41,7 @@ import Map from "@/view/home/components/Map.vue";
       margin: 5px 0;
       padding: 10px;
       box-sizing: border-box;
-      background: #f4f3f3;
+      background: #f9f9f9;
       box-shadow: -1px -1px 1px 1px #bebebe
     }
   }

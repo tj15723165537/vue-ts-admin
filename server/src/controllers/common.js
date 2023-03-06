@@ -24,7 +24,7 @@ const login = async (req, res) => {
   // 生成token
   const token = jwt.sign({
     id: String(user.dataValues.password.id),
-  }, SECRET)
+  }, SECRET,{expiresIn: '1h'})
 
   successRes(res, {msg: '登录成功',token})
 }
