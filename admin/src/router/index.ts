@@ -9,12 +9,11 @@ const contactRoutes: RouteRecordRaw[] = [
     component: () => import('@/view/login/index.vue')
   },
   {
-    path: '/',
-    name: 'home',
-    redirect: '/home',
+    path: '/home',
+    redirect: '/home/home',
     component: () => import('@/layout/index.vue'),
     children: [{
-      path: '/home',
+      path: 'home',
       meta: {
         title: '首页',
         icon: 'home'
@@ -22,6 +21,10 @@ const contactRoutes: RouteRecordRaw[] = [
       component: () => import('@/view/home/index.vue'),
     }]
   },
+  {
+    path: '/',
+    redirect: '/login'
+  }
 ]
 export const router = createRouter({
   history: createWebHistory(),
@@ -67,7 +70,7 @@ router.beforeEach(async (to, from, next) => {
   const whiteList = ['/login']
   if (!whiteList.includes(to.fullPath)) {
     const store = useCommonStore()
-    if(!store.token){
+    if (!store.token) {
       ElMessage.warning('请先登录！')
       next('/login')
     }

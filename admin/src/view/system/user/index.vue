@@ -32,7 +32,8 @@
     </el-table-column>
   </el-table>
   <div class="page">
-    <el-pagination background layout="prev, pager, next" :total="crud.pagination.total" @current-change="crud.getList({page:$event})"/>
+    <el-pagination background layout="prev, pager, next" :total="crud.pagination.total"
+                   @current-change="crud.getList({page:$event})"/>
   </div>
 
   <el-dialog
@@ -84,7 +85,7 @@ const crud = new Crud({
   listQuery,
   tempFrom: {
     account: '',
-    password:'',
+    password: '',
     status: 1
   }
 })
@@ -94,8 +95,8 @@ watch(() => crud.data.list, (val) => {
     item.status = item.status ? true : false
   })
 })
-const updateStatus = (id,val) => {
-  updateUserStatus(id,val ? 1 : 0).then(res=>{
+const updateStatus = (id, val) => {
+  updateUserStatus(id, val ? 1 : 0).then(res => {
     ElMessage.success(res.msg)
   })
 }

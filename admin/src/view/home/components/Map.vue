@@ -13,7 +13,7 @@ nextTick(() => {
 
 </script>
 <style lang="scss" scoped>
-#map{
+#map {
   border-radius: 5px;
   margin: 5px 10px;
   box-shadow: -1px -1px 1px 1px #bebebe

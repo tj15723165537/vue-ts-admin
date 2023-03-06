@@ -2,7 +2,7 @@ const {Menu} = require("@/models");
 const {successRes, failRes} = require('@/utils/response')
 const list = async (req, res) => {
   const result = await Menu.findAll()
-  const arr = result.map(item=>{
+  const arr = result.map(item => {
     return item.dataValues
   })
   let data = []
@@ -22,7 +22,7 @@ const list = async (req, res) => {
       data.push(item)
     }
   })
-  successRes(res,{data})
+  successRes(res, {data})
 }
 module.exports = {
   list

@@ -23,6 +23,7 @@ import {useRouter} from "vue-router";
 import {login} from '@/api/common'
 import type {FormRules, FormInstance} from 'element-plus'
 import {useCommonStore} from "@/store/modules/common";
+
 const router = useRouter()
 const store = useCommonStore()
 const ruleFormRef = ref<FormInstance>()
@@ -64,11 +65,11 @@ const submit = async () => {
   flex-direction: column;
 
   .card {
-    margin-top: 35vh;
+    margin-top: 40vh;
     width: 400px;
     border-radius: 20px;
     background: #e0e0e0;
-    opacity: .8;
+    //opacity: .9;
     box-shadow: 20px 20px 60px #bebebe;
     padding: 40px 30px 10px;
     box-sizing: border-box;

@@ -1,5 +1,5 @@
 const SECRET = "fdfhfjdfdjfdjerwrereresaassa2dd@ddds"
 
-module.exports={
+module.exports = {
   SECRET
 }

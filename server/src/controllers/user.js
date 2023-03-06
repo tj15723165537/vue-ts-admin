@@ -42,7 +42,7 @@ const add = async (req, res) => {
   const obj = {
     ...req.body,
     id: new Date().getTime(),
-    password:bcryptPassword
+    password: bcryptPassword
   }
   const result = await User.create(obj);
   if (result.id) {
@@ -63,7 +63,7 @@ const update = async (req, res) => {
 
   const obj = {
     ...req.body,
-    password:bcryptPassword
+    password: bcryptPassword
   }
 
   const result = await User.update(obj, {where: {id}});

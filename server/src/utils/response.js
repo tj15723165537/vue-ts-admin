@@ -1,5 +1,5 @@
 const successRes = (res, option) => {
-  const {data, msg, total,token} = option
+  const {data, msg, total, token} = option
   res.send({
     code: 0,
     data,

@@ -3,7 +3,7 @@ const {Op, where} = require("sequelize");
 const {successRes, failRes} = require('@/utils/response')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
-const {SECRET} =require('@/const')
+const {SECRET} = require('@/const')
 const login = async (req, res) => {
   const {account, password} = req.body
   if (!account) failRes(res, {msg: '账号不能为空'})
@@ -19,14 +19,14 @@ const login = async (req, res) => {
 
   if (!isMatch) failRes(res, {msg: '密码错误'})
 
-  if (user.dataValues.status===0) failRes(res, {msg: '账号被禁用'})
+  if (user.dataValues.status === 0) failRes(res, {msg: '账号被禁用'})
 
   // 生成token
   const token = jwt.sign({
     id: String(user.dataValues.password.id),
-  }, SECRET,{expiresIn: '1h'})
+  }, SECRET, {expiresIn: '1h'})
 
-  successRes(res, {msg: '登录成功',token})
+  successRes(res, {msg: '登录成功', token})
 }
 
 module.exports = {

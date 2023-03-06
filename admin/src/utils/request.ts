@@ -43,7 +43,7 @@ const request = <T>(option: option): Promise<Iresponse<T>> => {
       data: method?.toLowerCase() === 'post' ? data : null
     }).then(res => {
       if (res.status !== 200) {
-        const errMsg =  '网络错误'
+        const errMsg = '网络错误'
         ElMessage.error(errMsg)
         reject(errMsg)
       } else {

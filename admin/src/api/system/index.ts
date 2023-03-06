@@ -35,7 +35,7 @@ export const editUser = (data: Iuser) => {
 export const getUserDetail = (id: number) => {
   return requset<Iuser>({
     url: '/system/user/detail',
-    data:{
+    data: {
       id
     }
   })
@@ -50,7 +50,7 @@ export const delUser = (id: number) => {
   })
 }
 
-export const updateUserStatus = (id:number,status: number) => {
+export const updateUserStatus = (id: number, status: number) => {
   return requset({
     url: '/system/user/updateStatus',
     data: {

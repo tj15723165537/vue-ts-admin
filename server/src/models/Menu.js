@@ -13,6 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     pid: DataTypes.BIGINT
   }, {
     freezeTableName: true,
-    timestamps:false
+    timestamps: false
   })
 }

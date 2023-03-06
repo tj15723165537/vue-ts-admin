@@ -1,7 +1,7 @@
 const {Employee} = require("@/models");
 const {Op} = require("sequelize");
 const {successRes, failRes} = require('@/utils/response')
-const list = async(req,res)=>{
+const list = async (req, res) => {
   const {name, address, phone, page, size} = req.query
   const where = {}
   if (!!name) {
@@ -26,10 +26,10 @@ const list = async(req,res)=>{
     limit: parseInt(size)
   })
   const {count} = await Employee.findAndCountAll()
-  successRes(res,{data:result,total:count})
+  successRes(res, {data: result, total: count})
 }
 const add = async (req, res) => {
-  const {name, phone,address,date} = req.body
+  const {name, phone, address, date} = req.body
   if (!name) failRes(res, {msg: '姓名必填'})
   if (!phone) failRes(res, {msg: '手机号必填'})
   if (!date) failRes(res, {msg: '入职日期必填'})
@@ -46,7 +46,7 @@ const add = async (req, res) => {
 }
 
 const update = async (req, res) => {
-  const {name, phone, id,address,date} = req.body
+  const {name, phone, id, address, date} = req.body
   if (!name) failRes(res, {msg: '姓名必填'})
   if (!phone) failRes(res, {msg: '手机号必填'})
   if (!date) failRes(res, {msg: '入职日期必填'})
@@ -90,7 +90,7 @@ const del = async (req, res) => {
   }
 }
 
-module.exports={
+module.exports = {
   list,
   add,
   update,

@@ -24,7 +24,7 @@ nextTick(() => {
   option = {
     legend: {
       data: ['line'],
-      left:'10%'
+      left: '10%'
     },
     polar: {
       center: ['50%', '54%']

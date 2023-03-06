@@ -10,7 +10,7 @@ const User = userModel(sequelize, DataTypes)
 const Menu = menuModel(sequelize, DataTypes)
 const Employee = employeeModel(sequelize, DataTypes)
 
-module.exports={
+module.exports = {
   User,
   Menu,
   Employee

@@ -11,7 +11,7 @@
  Target Server Version : 80032
  File Encoding         : 65001
 
- Date: 04/03/2023 17:53:46
+ Date: 06/03/2023 11:38:31
 */
 
 SET NAMES utf8mb4;
@@ -54,7 +54,7 @@ CREATE TABLE `menu`  (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, 'home', '/home', '/home', '首页', 'HomeFilled', 0);
+INSERT INTO `menu` VALUES (1, 'home', '/home/home', '/home/home', '首页', 'HomeFilled', 0);
 INSERT INTO `menu` VALUES (2, 'system', '/system', '/system/user', '系统管理', 'Tools', 0);
 INSERT INTO `menu` VALUES (3, 'user', '/system/user', 'user', '用户管理', 'UserFilled', 2);
 INSERT INTO `menu` VALUES (4, 'employee', '/employee', '/employee', '员工管理', 'Avatar', 0);

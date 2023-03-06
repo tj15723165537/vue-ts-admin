@@ -5,15 +5,15 @@ router.get('/list', list)
 module.exports = router
 // (req, res) => {
 
-  // const cb = (error, results) => {
-  //   if (error) throw error;
-  //   if (results) {
-  //
-  //     })
-  //     res.send({
-  //       code: 0,
-  //       data
-  //     })
-  //   }
-  // }
+// const cb = (error, results) => {
+//   if (error) throw error;
+//   if (results) {
+//
+//     })
+//     res.send({
+//       code: 0,
+//       data
+//     })
+//   }
+// }
 // }

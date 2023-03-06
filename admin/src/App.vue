@@ -3,7 +3,7 @@
 
 <template>
   <Suspense>
-  <RouterView></RouterView>
+    <RouterView></RouterView>
   </Suspense>
 </template>
 

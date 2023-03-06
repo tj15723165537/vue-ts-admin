@@ -33,10 +33,10 @@ export const getEmployeeDetail = (id: number) => {
   })
 }
 
-export const delEmployee = ( id: number) => {
+export const delEmployee = (id: number) => {
   return requset({
     url: '/employee/employee/del',
-    data:{
+    data: {
       id
     }
   })

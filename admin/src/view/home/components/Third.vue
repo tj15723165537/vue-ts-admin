@@ -19,8 +19,7 @@ nextTick(() => {
     tooltip: {
       trigger: 'item'
     },
-    legend: {
-    },
+    legend: {},
     series: [
       {
         name: 'Access From',
@@ -40,9 +39,9 @@ nextTick(() => {
           show: false
         },
         data: [
-          { value: 580, name: 'Email' },
-          { value: 484, name: 'Union Ads' },
-          { value: 300, name: 'Video Ads' }
+          {value: 580, name: 'Email'},
+          {value: 484, name: 'Union Ads'},
+          {value: 300, name: 'Video Ads'}
         ]
       }
     ]

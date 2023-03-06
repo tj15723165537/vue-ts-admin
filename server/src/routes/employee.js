@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const asyncHandler = require("@/middlewares/asyncHandler");
-const {list,add,update,detail,del} = require('@/controllers/employee')
+const {list, add, update, detail, del} = require('@/controllers/employee')
 
 router.get('/list', asyncHandler(list))
 router.post('/add', asyncHandler(add))

@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <div class="title">{{store.isCollapse?'EMP':'EMPOLYEE'}}</div>
+    <div class="title">{{ store.isCollapse ? 'EMP' : 'EMPOLYEE' }}</div>
     <el-menu
         class="el-menu-vertical-demo"
         :unique-opened="true"
@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import {getMenuList} from "@/api/system/index";
 import {onMounted, ref} from 'vue'
-import {useRouter,useRoute, RouteRecordRaw} from 'vue-router'
+import {useRouter, useRoute, RouteRecordRaw} from 'vue-router'
 import {useMenuStore} from '@/store/modules/menu'
 
 const store = useMenuStore()
