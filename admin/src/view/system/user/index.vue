@@ -95,7 +95,7 @@ watch(() => crud.data.list, (val) => {
     item.status = item.status ? true : false
   })
 })
-const updateStatus = (id, val) => {
+const updateStatus = (id:number, val:number) => {
   updateUserStatus(id, val ? 1 : 0).then(res => {
     ElMessage.success(res.msg)
   })

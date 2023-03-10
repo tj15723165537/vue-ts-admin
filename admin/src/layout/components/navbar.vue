@@ -22,7 +22,7 @@ import {useRouter} from "vue-router";
 import {ElMessageBox} from "element-plus/es";
 
 const router = useRouter()
-const commonStore = useCommonStore()
+const commonStore:any = useCommonStore()
 const menuStore = useMenuStore()
 const handLogout = () => {
   ElMessageBox.confirm('确定要退出登录吗?', '提示', {

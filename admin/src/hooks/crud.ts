@@ -76,6 +76,7 @@ export class Crud {
       this.listQuery.size = page.size || 10
       this.listQuery.page = page.page || 1
     }
+    // @ts-ignore
     return this.apiList['L'](this.listQuery).then((res: any) => {
       if (res.code === 0) {
         this.data.list = expand && expand.list ? res.data[expand.list] : res.data
@@ -104,6 +105,7 @@ export class Crud {
     delete params.showModel
     if (!params.id) {
       delete params.id
+      // @ts-ignore
       return this.apiList['C'](params).then((res: any) => {
         if (res.code === 0) {
           this.tempFrom.showModel = false
@@ -113,6 +115,7 @@ export class Crud {
         }
       })
     } else {
+      // @ts-ignore
       return this.apiList['U'](params).then((res: any) => {
         if (res.code === 0) {
           this.tempFrom.showModel = false
@@ -138,6 +141,7 @@ export class Crud {
           type: 'warning',
         }
     ).then(async (res) => {
+      // @ts-ignore
       this.apiList['D'](id).then((res: any) => {
         if (res.code == 0) {
           this.getList()
@@ -179,8 +183,10 @@ export class Crud {
   //
   getDetail(row: any) {
     return new Promise((resolve, reject) => {
+      // @ts-ignore
       if (this.apiList['R']) {
         // 获取详情
+        // @ts-ignore
         this.apiList['R'](row[this.rowIdText]).then((res: any) => {
           let temp = res.data
           resolve(temp)

@@ -49,7 +49,7 @@ const init = async (id: number) => {
   if (id) {
     title.value = '编辑'
     const result = await getEmployeeDetail(id)
-    if (result) dataForm.value = result.data
+    if (result) dataForm.value = result.data!
   } else {
     title.value = '新建'
     if (formModel.value) {

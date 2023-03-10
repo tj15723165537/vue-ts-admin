@@ -1,5 +1,6 @@
 import {defineStore} from 'pinia'
 
+// @ts-ignore
 export const useCommonStore = defineStore('common', {
   state: () => {
     return {
@@ -7,9 +8,9 @@ export const useCommonStore = defineStore('common', {
     }
   },
   actions: {
-    setToken(val) {
+    setToken(val:string) {
       this.token = val
     }
   },
-  persist: true
+  persist: true,//开启该库的持久化
 })

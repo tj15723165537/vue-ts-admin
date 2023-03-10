@@ -57,7 +57,7 @@ const addEditRef = ref()
 const addOrEdit = (id?: number) => {
   addEditRef.value.init(id)
 }
-const del = (id) => {
+const del = (id:number) => {
   ElMessageBox.confirm('确定要删除吗?', '提示', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
@@ -74,14 +74,18 @@ const del = (id) => {
 }
 const getList = async () => {
   let result = await getEmployeeList(searchState)
-  tableData.value = result.data
+  tableData.value = result.data!
   tableData.value.map(item => {
     item.date = new Date(item.date!).toLocaleDateString()
   })
 }
 const reset = () => {
-  for (let i in searchState) {
-    searchState[i] = ''
+  searchState = {
+    page: 1,
+    size: 10,
+    name: '',
+    phone: '',
+    address: ''
   }
 }
 const search = () => {

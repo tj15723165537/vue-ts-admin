@@ -25,7 +25,7 @@ instance.interceptors.response.use(response => {
 })
 
 
-interface Iresponse<T> {
+export interface Iresponse<T> {
   code: number,
   data?: T,
   msg?: string,
@@ -54,7 +54,7 @@ const request = <T>(option: option): Promise<Iresponse<T>> => {
         }
 
         // 时间处理
-        res.data && res.data.data && res.data.data.length && res.data.data.map(item => {
+        res.data && res.data.data && res.data.data.length && res.data.data.map((item:any) => {
           if (item.createdAt) {
             item.createdAt = new Date(item.createdAt!).toLocaleDateString()
           }

@@ -25,7 +25,7 @@ import type {FormRules, FormInstance} from 'element-plus'
 import {useCommonStore} from "@/store/modules/common";
 
 const router = useRouter()
-const store = useCommonStore()
+const store:any = useCommonStore()
 const ruleFormRef = ref<FormInstance>()
 const formStatus = reactive({
   account: '',

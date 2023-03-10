@@ -9,7 +9,7 @@ export const getMenuList = (data: object) => {
   })
 }
 
-export const getUserList = (data) => {
+export const getUserList = (data:object) => {
   return requset<Iuser[]>({
     url: '/system/user/list',
     data
